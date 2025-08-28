@@ -91,12 +91,39 @@ def plot_power_vs_speed_slope(vehicles, v, slope_fraction, filename):
     plt.show()
 
 
+def plot_power_vs_acceleration(vehicles, v, acc, filename):
+    """Plot power vs speed for different accelerations at a given speed"""
+    plt.figure(figsize=(9,6))
+
+    for name, params in vehicles.items():
+        F_roll = params["Crr"] * params["m"] * g
+        F_aero = 0.5 * rho * params["Cd"] * params["A"] * v**2
+        F_acc = params["m"] * acc * g
+        F_total = F_roll + F_aero + F_acc
+        P_wheel = F_total * v  # W
+        P_batt = P_wheel / params["eta"]
+        plt.plot(v*3.6, P_batt/1000,
+                 label=f"{name}, {acc:.1f} g")
+
+    plt.xlabel("Speed (km/h)")
+    plt.ylabel("Power demand (kW) [log scale]")
+    plt.title(f"Vehicle Power vs Speed for Accelerations of {acc} g")
+    plt.yscale("log")
+    plt.grid(True, which="both", linestyle="--")
+    plt.legend()
+    plt.savefig(filename)
+    plt.show()
+
+
 def main():
     plot_consumption_vs_speed(vehicles, v)
     plot_power_vs_speed(vehicles, v)
     plot_power_vs_speed_slope(vehicles, v, 0.05, "Power_5percent_slope.png")
     plot_power_vs_speed_slope(vehicles, v, 0.10, "Power_10percent_slope.png")
-
-
+    plot_power_vs_acceleration(vehicles, v, 1.0, "Power_acceleration10.png")
+    plot_power_vs_acceleration(vehicles, v, 0.5, "Power_acceleration05.png")
+    plot_power_vs_acceleration(vehicles, v, 0.3, "Power_acceleration03.png")
+    plot_power_vs_acceleration(vehicles, v, 0.2, "Power_acceleration02.png")
+    plot_power_vs_acceleration(vehicles, v, 0.1, "Power_acceleration01.png")
 if __name__ == "__main__":
     main()
