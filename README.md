@@ -5,6 +5,8 @@ this repo contains script to explore the limit of efficiency (in the sense of kw
 
 This graph allow to compare the different mean of transportation between them on the kwh/100km basis.
 
+The energy is computed as potential energy in the tank / battery ( 1l of gasoline = ~ 9.1 kwh) and the efficiency of the engine / drivetrain is estimated.
+
 The script use a simplified model that account for a drag and rolling losses.
 
 Beware that this is a theoretical upper bound with approximate value.
