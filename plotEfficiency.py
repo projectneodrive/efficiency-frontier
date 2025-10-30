@@ -12,7 +12,7 @@ v = np.linspace(1, 35, 400)  # m/s (avoid 0 to prevent division by zero)
 vehicles = {
     "cityEL": {"Cd": 0.30, "A": 1.0, "Crr": 0.015, "m": 300, "eta": 0.7, "base_color":"#2ca02c"},  # green
     "twike_3": {"Cd": 0.325, "A": 1.34, "Crr": 0.012, "m": 300, "eta": 0.80, "base_color":"#2ca02c"},
-    "twike_5": {"Cd": 0.27, "A": 1.7, "Crr": 0.015, "m": 700, "eta": 0.85, "base_color":"#ff7f0e"},
+    "twike_5": {"Cd": 0.27, "A": 1.7, "Crr": 0.01, "m": 700, "eta": 0.85, "base_color":"#ff7f0e"},
     "tesla_model3": {"Cd": 0.23, "A": 2.22, "Crr": 0.010, "m": 1760, "eta": 0.85, "base_color":"#ff7f0e"},  # orange
     "toyota_prius_battery_only": {"Cd": 0.24, "A": 2.16, "Crr": 0.010, "m": 1375, "eta": 0.85, "base_color":"#ff7f0e"},
     "citroen_2CV": {"Cd": 0.51, "A": 1.8, "Crr": 0.015, "m": 600, "eta": 0.25, "base_color":"#d62728"},  # red
@@ -23,7 +23,7 @@ vehicles = {
     "velomobile_quest": {"Cd": 0.20, "A": 0.55, "Crr": 0.005, "m": 125, "eta": 0.98, "base_color":"#1f77b4"},  # blue
     "bike_upright": {"Cd": 1.00, "A": 0.6, "Crr": 0.005, "m": 100, "eta": 0.98, "base_color":"#1f77b4"},
     "train": {"Cd": 1, "A": 0.4, "Crr": 0.0003, "m": 7500, "eta": 0.95, "base_color":"#1f77b4"},
-    "neodrive": {"Cd": 0.2, "A": 1, "Crr": 0.005, "m": 130, "eta": 0.75, "base_color":"#e377c2"}   # pink
+    "neodrive": {"Cd": 0.2, "A": 1, "Crr": 0.0075, "m": 130, "eta": 0.75, "base_color":"#e377c2"}   # pink
 }
 
 def adjust_color(hex_color, factor=1.0):
